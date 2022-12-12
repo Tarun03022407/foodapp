@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+           body {
+      margin: 0%;
+      background-color: burlywood;
+    }
+           #navbar {
+      display: flex;
+      justify-content:space-between;
+      align-items: center;
+      padding-left: 2%;
+      background: linear-gradient(to bottom, #192133, #111826);
+      color: white;
+    }
+    #search{
+        width: 500px;
+        height: 40px;
+        border-radius: 10px;
+        font-size: 20px;
+        text-align: center;
+    }
+    #reciepebtn{
+        height: 40px;
+        font-size: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    #randombtn{
+        height: 40px;
+        font-size: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+   #reciepes{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:20px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+    color: white;
+   }
+   #reciepes img{
+    width:90%;
+    margin-top: 5px;
+   }
+   #reciepes>div{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #192133, #111826);
+   }
+   #logOut{
+    height: 40px;
+        font-size: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+   }
+   #username{
+    font-size: 25px;
+   }
+   #logo{
+    cursor: pointer;
+   }
+    </style>
+</head>
+<body>
+    <div id="navbar"><h1>Food App</h1>
+        <input id="search" type="text" placeholder="Search Receipe">
+        <button id="reciepebtn">Get Receipe Of The Day</button>
+        <button id="randombtn">Random Receipe</button>
+       <u> <p  id="username"></p></u>
+        <button  id="logOut">Log-out</button>
+    </div>
+    <div id="reciepes"></div>
+    
+</body>
+</html>
+<script type="module" src="user.js">
+
+</script>

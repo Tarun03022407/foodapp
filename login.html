@@ -1,0 +1,165 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        margin: 0%;
+        background-color: burlywood;
+        }
+      #navbar {
+      display: flex;
+      justify-content:space-between;
+      align-items: center;
+      padding-left: 2%;
+      background: linear-gradient(to bottom, #192133, #111826);
+      color: white;
+    }
+    #search{
+        width: 500px;
+        height: 40px;
+        border-radius: 10px;
+        font-size: 20px;
+        text-align: center;
+    }
+    #reciepebtn{
+        height: 40px;
+        font-size: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    #randombtn{
+        height: 40px;
+        font-size: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    #Login{
+        height: 40px;
+        font-size: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    #container2 {
+        padding-left: 17%;
+        padding-right: 2%;
+
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 100px;
+      }
+      #register-form {
+        height: 550px;
+        margin-bottom: 200px;
+        width: 550px;
+        text-align: center;
+        margin-left: 400px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+          rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+          rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      }
+      #register-form > h1 {
+        margin-top: 50px;
+      }
+      
+      form > input {
+        margin-top: 4%;
+        width: 100%;
+        height: 35px;
+        text-align: center;
+        font-size: 20px;
+        border-radius: 10px;
+      }
+      #btn {
+        margin-top: 15px;
+        width: 50%;
+        height: 40px;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      #logo{
+    cursor: pointer;
+   }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <h1>Food App</h1>
+        <input id="search" type="text" placeholder="Search Receipe">
+        <button id="reciepebtn">Get Receipe Of The Day</button>
+        <button id="randombtn">Random Receipe</button>
+        <button  id="Login">signup</button>
+    </div>
+    <div id="container2">
+        <div id="register-form">
+          <h1>Log-In</h1>
+          <form action="">
+            <input type="text" id="login-username" placeholder="Username" />
+            <input type="password" id="login-password" placeholder="Password"/>
+          </form>
+          <button id="btnlogin">Log-In</button>
+        </div>
+      </div>
+</body>
+</html>
+
+
+<script >
+class User {
+    constructor(n) {}
+
+    async login(u, p) {
+      this.username = u;
+      this.password = p;
+      let actual_data = JSON.stringify(this);
+
+      try {
+        let res = await fetch(`https://masai-api-mocker.herokuapp.com/auth/login`,{
+            method: "POST",
+            body: actual_data,
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+        let data = await res.json();
+        console.log("data:", data);
+
+        alert("welcome" + "  " + this.username);
+
+        console.log("actual_data:", actual_data);
+        console.log(this.username);
+
+        window.location.href = "user.html";
+      } catch (error) {
+        console.log("error:", error);
+      }
+
+      localStorage.setItem("username", actual_data);
+    }
+  }
+  let u1 = new User();
+
+document.getElementById("btnlogin").addEventListener("click",function(){
+    console.log("check")
+    const username = document.getElementById("login-username").value;
+    const password = document.getElementById("login-password").value;
+
+    u1.login(username, password);
+})
+   
+  
+
+  function gotoSub() {
+    window.location.href = "index.html";
+  }
+</script>
+
+
+
+
